@@ -18,7 +18,7 @@ def draw_plot():
 
     # Create second line of best fit (from year 2000 onward)
     df_2000 = df[df['Year'] >= 2000]
-    slope_2000, intercept_2000, r_value_2000, p_value_2000, std_err_2000 = linregress(df_2000['Year'], df_2000['CSIRO Adjusted Sea Level'])
+    slope_2000, intercept_2000 = linregress(df_2000['Year'], df_2000['CSIRO Adjusted Sea Level'])
     x_pred_2000 = pd.Series(range(2000, 2051))
     y_pred_2000 = intercept_2000 + slope_2000 * x_pred_2000
     plt.plot(x_pred_2000, y_pred_2000, 'green', label='Best Fit Line (2000-2050)')
